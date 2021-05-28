@@ -36,10 +36,10 @@ final class Shop
             $this->downSellIn($item);
 
             // Получаем инкремент для quality
-            $inc = $this->getIncrement($item);
+            $inc = $this->getIncQuality($item);
 
             // Изменяем quality
-            $this->incQuality($item, $inc);
+            $this->setIncQuality($item, $inc);
         }
     }
 
@@ -49,7 +49,7 @@ final class Shop
      * @param Item $item
      * @return int
      */
-    private function getIncrement(Item $item) : int
+    private function getIncQuality(Item $item) : int
     {
         switch ($item->name) {
 
@@ -85,7 +85,7 @@ final class Shop
      * @param Item $item
      * @param int $inc
      */
-    private function incQuality(Item &$item, int $inc) : void
+    private function setIncQuality(Item &$item, int $inc) : void
     {
         if ($inc > 0)
             $this->upQuality($item, abs($inc));
