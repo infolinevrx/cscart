@@ -39,7 +39,7 @@ final class Shop
             $inc = $this->getIncQuality($item);
 
             // Изменяем quality
-            $this->setIncQuality($item, $inc);
+            $this->setQuality($item, $inc);
         }
     }
 
@@ -85,7 +85,7 @@ final class Shop
      * @param Item $item
      * @param int $inc
      */
-    private function setIncQuality(Item &$item, int $inc) : void
+    private function setQuality(Item &$item, int $inc) : void
     {
         if ($inc > 0)
             $this->upQuality($item, abs($inc));
